@@ -1,0 +1,46 @@
+{{>index_header}}
+
+<div class="container align-items-center min-vh-100">
+    <div class="row">
+
+        <div class="col-md-6 col-sm-12 mb-3">
+            <h1 class="text-center mt-3 mb-2">Cập nhật ảnh CMND</h1>
+            <form method="post" action="/update-photo" enctype="multipart/form-data" class="px-4 px-sm-4 px-m-5 px-lg-4 pt-3">
+                <div class="renew">
+                    <div class="form-group">
+                        <input id="front-nid" onchange="setPreviewImage(event,'front-nid-preview')" name="front-nid" type="file" class="form-input" placeholder="Mặt trước CNND" style="display: none">
+                        <label for="front-nid" class="form-input" style="text-align: left;">Ảnh mặt trước CMND
+                    </div>
+                    <div class="form-group">
+                        <img id="front-nid-preview" class="d-none" width="400px" src="/images/slider/img-slide4.jpg" alt="" srcset="">
+                    </div>
+                    <div class="form-group">
+                        <input id="back-nid" onchange="setPreviewImage(event,'back-nid-preview')" name="back-nid" type="file" class="form-input" placeholder="Mặt sau CMND" style="display: none"/>
+                        <label for="back-nid" class="form-input" style="text-align: left;">Ảnh mặt sau CMND
+                    </div>
+                    <div class="form-group">
+                        <img id="back-nid-preview" class="d-none" width="400px" src="/images/slider/img-slide4.jpg" alt="" srcset="">
+                    </div>
+                    {{#if error}}
+                    <div class="form-group">
+                        <div class="alert alert-danger">{{error.msg}}</div>
+                    </div>
+                    {{/if}}     
+                </div>
+               
+                <div class="input-group custom-control custom-checkbox pt-2">
+                    <div class="custom-button text-right">
+                        <a href="/index" class="btn btn-logout">Trở lại</a>
+                        <button type="submit"  class="btn btn-login">Cập nhật</button>
+                    </div>
+                </div>
+                
+                <div id = 'error-activeAccount' style="display: none;" class='alert-danger'></div>
+            </form>
+        </div>
+
+        <div class="col-md-6 col-sm-0 mt-5">
+            <img  class="img" src="./images/credit_card.svg" alt="login"/>
+        </div>
+    </div>
+</div>

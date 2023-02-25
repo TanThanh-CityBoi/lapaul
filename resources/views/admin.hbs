@@ -1,0 +1,65 @@
+{{>admin_header}}
+
+<div style="padding-top: 8rem;">
+    <div class="container-fluid align-items-center">
+        <div class="background col-lg-8 col-md-10 col-sm-12"></div>
+    </div>
+
+    <div style="position: relative;">
+        <div class="container-fluid" style="position: absolute; top: 10px ;display: flex; justify-content: center;">
+            <div class="management col-lg-2 col-md-3 col-sm-4 col-5">
+                <div class="management-item">
+                    <div class="search-group has-search">
+                        <span class="fa fa-search form-icon-search"></span>
+                        <input type="search" id="search-input" name=search class="form-control"
+                            placeholder="Tìm kiếm   " />
+                    </div>
+                    <select id="show-department-manager" style="margin-top: 15px;"
+                        class="form-select button-notice text-center" onchange="setListUsers()">
+                        <option value="1">Danh sách tài khoản</option>
+                        <option value="2">Đang chờ</option>
+                        <option value="3">Đã kích hoạt</option>
+                        <option value="4">Đã vô hiệu hóa</option>
+                        <option value="5">Đã bị khóa vô hạn</option>
+                    </select>
+                </div>
+            </div>
+            <div class="management col-lg-6 col-md-7 col-sm-8 col-7" style="padding-left: 20px">
+                <div id="list-employee" class="right">
+                    {{#each users}}
+                    <div class="management-item">
+                        <div class="row" style="display: block">
+                            {{#ifCond this.status '==' 'inactive'}}{{!-- chờ xác minh --}}
+                            <span class="dot-person activity-activated"></span>
+                            {{/ifCond}}
+
+                            {{#ifCond this.status '==' 'waiting'}}{{!-- chờ cập nhật --}}
+                            <span class="dot-person activity-activated"></span>
+                            {{/ifCond}}
+
+                            {{#ifCond this.status '==' 'activated'}}{{!-- đã xác minh --}}
+                            <span class="dot-person activity-complete"></span>
+                            {{/ifCond}}
+
+                            {{#ifCond this.status '==' 'disabled'}}{{!-- đã vô hiệu hóa --}}
+                            <span class="dot-person activity-waiting"></span>
+                            {{/ifCond}}
+
+                            {{#ifCond this.status '==' 'locked'}}{{!-- đã khóa --}}
+                            <span class="dot-person activity-reject"></span>
+                            {{/ifCond}}
+                            <span>
+                                <a class="person-label" href="/admin/detailUser/{{this.id}}">{{this.fullname}}</a>
+                                <div class="person-box">
+                                    <a class="person">{{this.status}}</a>
+                                    <a class="person-right">{{this.created_date}}</a>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

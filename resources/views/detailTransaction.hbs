@@ -1,0 +1,65 @@
+{{>index_header}}
+
+<div style="padding-top: 8rem;">
+    <div class="row" style="width: 100%; box-sizing: border-box">
+        <div class="container-fluid title mr-lg-0" style="border: 1px solid gray;border-radius: 8px;padding: 30px;">
+            <div class="header">
+                <h3>Chi tiết giao dịch</h3>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-info">
+                    <div class="info-list">
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Mã giao dịch</label>
+                                <p class="context">{{transaction.id}}</p>
+                            </div>
+                        </div>
+                        {{#ifCond transaction.type '==' 'transfer'}}
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Người nhận</label>
+                                <p class="context">{{transaction.username2}}</p>
+                            </div>
+                        </div>
+                        {{/ifCond}}
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Loại giao dịch</label>
+                                <p class="context">{{transaction.type}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Trạng thái</label>
+                                <p class="context">{{transaction.status}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Số tiền</label>
+                                <p class="context">{{transaction.total}} đ</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Chú thích</label>
+                                <p class="context">{{transaction.note}}</p>
+                            </div>
+                        </div>
+                        <div class="save-btn">
+                            {{#ifCond transaction.status '==' 'waiting'}}
+                            <button id="active-request-btn" type="button" class="btn btn-profile"
+                                onclick="updateTransaction('accepted', {{transaction.id}})">Duyệt</button>
+                            <button id="cancel-request-btn" type="button" class="btn btn-profile"
+                                onclick="updateTransaction('canceled', {{transaction.id}})">Hủy</button>
+                            {{/ifCond}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

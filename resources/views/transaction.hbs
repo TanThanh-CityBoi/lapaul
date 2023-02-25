@@ -1,0 +1,62 @@
+{{>index_header}}
+
+<div style="padding-top: 8rem;">
+    <div class="container-fluid align-items-center">
+        <div class="background col-lg-8 col-md-10 col-sm-12"></div>
+    </div>
+
+    <div style="position: relative;">
+        <div class="container-fluid" style="position: absolute; top: 10px ;display: flex; justify-content: center;">
+            <div class="management col-lg-2 col-md-3 col-sm-4 col-5">
+                <div class="management-item">
+                    <div class="search-group has-search">
+                        <span class="fa fa-search form-icon-search"></span>
+                        <input type="search" id="search-input" name=search class="form-control"
+                            placeholder="Tìm kiếm   " />
+                    </div>
+                    <select id="show-history-transactions-manager" style="margin-top: 15px;"
+                        class="form-select button-notice text-center">
+                        <option value="1">Lịch sử giao dịch</option>
+                        <option value="2">Nạp tiền</option>
+                        <option value="3">Rút tiền</option>
+                        <option value="4">Chuyển tiền</option>
+                        <option value="5">Mua card</option>
+                    </select>
+                </div>
+            </div>
+            <div class="management col-lg-6 col-md-7 col-sm-8 col-7" style="padding-left: 20px">
+                <div id="list-employee" class="right">
+                    {{#each transactions}}
+                    <div class="management-item" style="position: relative;">
+                        <a href="/index/transaction/detail/{{this.id}}" style="height: 90px; width: 664px; position:absolute; top: 0; left: 0"></a>
+                            <div class="row" style="display: block">
+                                {{#ifCond this.status '==' 'waiting'}}{{!-- chờ xác minh --}}
+                                <span class="dot-person activity-activated"></span>
+                                {{/ifCond}}
+
+                                {{#ifCond this.status '==' 'accepted'}}{{!-- đã accept --}}
+                                <span class="dot-person activity-complete"></span>
+                                {{/ifCond}}
+
+                                {{#ifCond this.status '==' 'canceled'}}{{!-- đã hủy --}}
+                                <span class="dot-person activity-waiting"></span>
+                                {{/ifCond}}
+
+                                <span>
+                                    <div class="person-box">
+                                        <a class="person">{{this.note}}</a>
+                                        <a class="person-right">{{this.total}} đ</a>
+                                    </div>
+                                    <div class="person-box">
+                                        <a class="person">{{this.status}}</a>
+                                        <a class="person-right">{{this.created_date}}</a>
+                                    </div>
+                                </span>
+                            </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

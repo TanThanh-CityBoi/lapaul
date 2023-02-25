@@ -1,0 +1,125 @@
+{{>admin_header}}
+
+<div style="padding-top: 8rem;">
+    <div class="row" style="width: 100%; box-sizing: border-box">
+        <div class="container-fluid title col-lg-6 col-md-10 col-sm-11 mr-lg-0"
+            style="border: 1px solid gray;border-radius: 8px;padding: 30px;">
+            <div class="header">
+                <h3>Hồ Sơ Của Tôi</h3>
+                <p>Quản lý thông tin hồ sơ của bạn</p>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-info">
+                    <div class="info-list">
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Email</label>
+                                <p class="context">{{user.email}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Username</label>
+                                <p class="context">{{user.username}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Mật khẩu</label>
+                                <p class="context">*********</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Họ và tên</label>
+                                <p class="context">{{user.fullname}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Số điện thoại</label>
+                                <p class="context">{{user.phone}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Số dư tài khoản</label>
+                                <p class="context">{{user.balance}}</p>
+                            </div>
+                        </div>
+                        <div id="reset-pass-success" class='alert alert-success'
+                            style='text-align: center;margin: 10px 23px;display:none'>Đổi mật khẩu thành công</div>
+                        <div id="upload-avt-error" class='alert alert-danger'
+                            style='text-align: center;margin: 10px 23px;display:none'>Vui lòng chọn ảnh để upload</div>
+                        <div class="save-btn">
+                            {{#ifCond user.status '==' 'inactive'}}
+                            <button id="active-request-btn" type="button" class="btn btn-profile"
+                                onclick="openModal('activated', {{user.id}})">Xác minh</button>
+                            <button id="cancel-request-btn" type="button" class="btn btn-profile">Hủy</button>
+                            {{/ifCond}}
+
+                            {{#ifCond user.status "==" "locked"}}
+                            <button id="unlock-account-btn" type="button" class="btn btn-profile"
+                                onclick="openModal('activated', {{user.id}}">Mở khóa</button>
+                            {{/ifCond}}
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-img">
+                    <div class="info-image">
+                        <div class="info-img">
+                            <div class="row">
+                                <div class="img-wrap">
+                                    <img id="user-avatar" src="/images/avatar/profile.svg" alt="">
+                                </div>
+                                <div class="img-wrap">
+                                    <img id="user-avatar" src="/images/avatar/profile.svg" alt="">
+                                </div>
+                            </div>
+                           {{#ifCond user.status "==" "inactive"}}
+                            <button id="btn-require" onclick="openModal('waiting', {{user.id}})"
+                                style="border: solid 1px black; border-radius: 5px; min-height: 40px;">Yêu cầu cập nhật
+                                CMND/CCCD
+                            </button>
+                          {{/ifCond}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid title col-lg-4 col-md-10 col-sm-11 ml-lg-0" style="padding: 30px;">
+            <h5 style="color: var(--logo-color1); font-family: PoppinsVN-500, sans-serif">Recent Activity</h5>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-complete"></span><a class="activity">Thanh toán qua Zalo</a><br>
+                    <a style="flex: 1; text-align: right">-89.909đ</a>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-waiting"></span><a class="activity">Chuyển tiền cho Sang Sinh</a><br>
+                    <a style="flex: 1; text-align: right">-59.909đ</a>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-reject"></span><a class="activity">Chuyển tiền cho Donal Trump</a><br>
+                    <a style="flex: 1; text-align: right">-79.909đ</a>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-complete"></span><a class="activity">Nạp tiền vào tài khoản</a><br>
+                    <a style="flex: 1; text-align: right">+99.909đ</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-group"></div>
+
+

@@ -1,0 +1,191 @@
+{{>index_header}}
+
+<div style="padding-top: 8rem;">
+    <div class="row" style="width: 100%; box-sizing: border-box">
+    <div class="container-fluid title col-lg-6 col-md-10 col-sm-11 mr-lg-0" style="border: 1px solid gray;border-radius: 8px;padding: 30px;">
+            <div class="header">
+                <h3>Hồ Sơ Của Tôi</h3>
+                <p>Quản lý thông tin hồ sơ của bạn</p>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-info">
+                    <div class="info-list">
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Email</label>
+                                <p class="context">{{user.email}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Username</label>
+                                <p class="context">{{user.username}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Mật khẩu</label>
+                                <p class="context">********* 
+                                    <a href="/change-password" style="text-decoration: underline;color:#05a;cursor: pointer;" id="resetPass-btn" >Thay đổi</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Họ và tên</label>
+                                <p class="context">{{user.fullname}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Ngày sinh</label>
+                                <p class="context">{{user.birthday}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Số điện thoại</label>
+                                <p class="context">{{user.phone}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Địa chỉ</label>
+                                <p class="context">{{user.address}}</p>
+                            </div>
+                        </div>
+                        <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>Số dư tài khoản</label>
+                                <p class="context">{{user.balance}}</p>
+                            </div>
+                        </div>
+
+                        {{!-- <div class="info-item-wrap">
+                            <div class="info-item">
+                                <label>CMND (mặt trước)</label>
+                                    <img width="400px" id="user-avatar" src="{{user.nid_front_photourl}}" alt="">
+                            </div>
+                        </div> --}}
+                        {{!-- <div id="reset-pass-success" class='alert alert-success' style='text-align: center;margin: 10px 23px;display:none'>Đổi mật khẩu thành công</div>
+                        <div id="upload-avt-error" class='alert alert-danger' style='text-align: center;margin: 10px 23px;display:none'>Vui lòng chọn ảnh để upload</div> --}}
+                        {{!-- <div class="save-btn">
+                            <button id="upload-avt-btn" type="button" class="btn btn-profile" aria-disabled="false">Lưu</button>
+                        </div> --}}
+                    </div>
+
+                    <div style="gap: 2rem;" class="d-flex">
+                        <div class="me-4">
+                            <p class="m-1">CMND (mặt trước)</p>
+                            <img width="250px" id="user-avatar" src="{{user.nid_front_photourl}}" alt="">
+                        </div>
+                        <div >
+                            <p class="m-1">CMND (mặt sau) </p>
+                            <img width="250px" id="user-avatar" src="{{user.nid_front_photourl}}" alt="">
+                        </div>
+                        <a href="/update-photo" style="text-decoration: underline;color:#05a;cursor: pointer;" id="resetPass-btn" >Thay đổi</a></p>
+                    </div>
+                </div>
+                {{!-- <div class="profile-img">
+                    <div class="info-image">
+                        <div class="info-img">
+                            <div class="row">
+                                <div >
+                                    <img width="200px" id="user-avatar" src="{{user.nid_front_photourl}}" alt="">
+                                </div>
+                                <div >
+                                    <img width="200px" id="user-avatar" src="{{user.nid_front_photourl}}" alt="">
+                                </div>
+                            </div>
+                            <input id="file-upload-avatar" type="file" accept="image/jpeg, image/png" onchange="readURL(this);"> 
+                            <label for="file-upload-avatar" class="custom-file-upload">Cập nhật CMND</label> 
+                                <div class="descrip">
+                                    <div>Dụng lượng file tối đa 3 MB</div>
+                                    <div>Định dạng:.JPEG, .PNG</div>
+                                </div> 
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+        <div class="container-fluid title col-lg-4 col-md-10 col-sm-11 ml-lg-0" style="padding: 30px;">
+            <h5 style="color: var(--logo-color1); font-family: PoppinsVN-500, sans-serif">Recent Activity</h5>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-complete"></span><a class="activity" >Thanh toán qua Zalo</a><br>
+                    <a style="flex: 1; text-align: right">-89.909đ</a>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-waiting"></span><a class="activity" >Chuyển tiền cho Sang Sinh</a><br>
+                    <a style="flex: 1; text-align: right">-59.909đ</a>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-reject"></span><a class="activity" >Chuyển tiền cho Donal Trump</a><br>
+                    <a style="flex: 1; text-align: right">-79.909đ</a>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <div class="activity-box">
+                    <span class="dot activity-complete"></span><a class="activity" >Nạp tiền vào tài khoản</a><br>
+                    <a style="flex: 1; text-align: right">+99.909đ</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Upload Success!-->
+<div class="modal fade" id="upload-success-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img id="upload-avt-icon" style="width: 60px;margin: auto;display: block;" src="./images/success-24.png" alt="success-icon">
+        <p id="upload-avt-descrip" style="text-align: center;margin: 1rem; font-size: 21px;">Upload avatar thành công !</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Reset Password! -->
+<div class="modal fade" id="reset-pass-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-content">
+                <div class="modal-header align-items-center">
+                    <h1 class="mt-4 mb-2">Thay đổi mật khẩu</h1>
+                </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="task-label" for="oldpass">Mật khẩu cũ</label>
+                    <input id="oldpass" type="password" class="form-input" placeholder="Nhập mật khẩu cũ">
+                </div>
+                <div class="form-group">
+                    <label class="task-label" for="newpass">Mật khẩu mới</label>
+                    <input id="newpass" type="password" class="form-input" placeholder="Nhập mật khẩu mới">
+                </div>
+                <div class="form-group">
+                    <label class="task-label" for="confirmpass">Nhập lại mật khẩu mới</label>
+                    <input id="confirmpass" type="password" class="form-input" placeholder="Nhập lại mật khẩu mới">
+                </div>
+                <div id="reset-pass-error" class='alert alert-danger' style='text-align: center;margin: 0 23px;display:none'></div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id ="confirm-repass" class="btn btn-success">Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,0 +1,46 @@
+{{>index_header}}
+<div style="padding-top: 8rem;">
+
+    <div class="container-fluid main-container col-lg-5 col-md-8 col-sm-11 mt-5" style="border: 1px solid gray;border-radius: 8px;padding: 30px;">
+        <div class="header align-items-center">
+            <h2 style="font-family: PoppinsVN-700, sans-serif;">Mua thẻ điện thoại</h2>
+        </div>
+        <div class="header align-items-center">
+            <p>Vui lòng lựa chọn nhà mạng và mệnh giá thẻ</p>
+        </div>
+
+        <form method="post" class="px-4 px-sm-4 px-m-5 px-lg-4 pt-3">
+            <div class="renew">
+                <div class="form-group">
+                    <label class="company-label" for="company">Nhà mạng</label>
+                    <select id="company" name="company" class="form-input" style="padding: 2px 14px">
+                        <option value="Viettel">Viettel</option>
+                        <option value="Mobifone">Mobifone</option>
+                        <option value="Vinaphone">Vinaphone</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="payment-label" for="payment">Mệnh giá thẻ</label>
+                    <select id="payment" name="payment" class="form-input" style="padding: 2px 14px">
+                        <option value="10.000đ">10.000đ</option>
+                        <option value="20.000đ">20.000đ</option>
+                        <option value="50.000đ">50.000đ</option>
+                        <option value="100.000đ">100.000đ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="payment-label" for="payment">Số lượng</label>
+                    <input id="payment-money" name="payment-money" type="number" class="form-input" value="1" max="5" min="1">
+
+                </div>
+
+                <div class="input-group custom-control custom-checkbox pt-2">
+                    <div class="custom-button text-right">
+                        <button type="submit" class="btn btn-login">Thanh toán</button>
+                    </div>
+                </div>
+                <div id = 'error-activeAccount' style="display: none;" class='alert-danger'></div>
+            </div>
+        </form>
+    </div>
+</div>
